@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Xmusk Pay - Sign Up</title>
+  <style>
+    body {
+      background: #f2f2f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .signup-box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 350px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .otp-box {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signup-box">
+    <h2>Sign Up</h2>
+
+    <div id="step1">
+      <input type="tel" id="phone" placeholder="Phone number" required>
+      <button onclick="sendOTP()">Send OTP</button>
+    </div>
+
+    <div id="step2" class="otp-box">
+      <input type="text" id="otp" placeholder="Enter OTP">
+      <input type="text" id="username" placeholder="Create Username">
+      <input type="password" id="password" placeholder="Create Password">
+      <button onclick="verifyOTP()">Create Account</button>
+    </div>
+
+  </div>
+
+  <script>
+    let generatedOTP = "";
+
+    function sendOTP() {
+      const phone = document.getElementById("phone").value;
+      if (!phone) return alert("Please enter a phone number.");
+
+      generatedOTP = Math.floor(1000 + Math.random() * 9000); // 4-digit OTP
+      alert("Your OTP is: " + generatedOTP); // Simulated OTP send
+
+      document.getElementById("step1").style.display = "none";
+      document.getElementById("step2").style.display = "block";
+    }
+
+    function verifyOTP() {
+      const enteredOTP = document.getElementById("otp").value;
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (enteredOTP != generatedOTP) return alert("Incorrect OTP!");
+      if (!username || !password) return alert("Please enter username & password.");
+
+      // Simulate saving data
+      localStorage.setItem("xmuskUser", username);
+      localStorage.setItem("xmuskPass", password);
+      alert("Account created successfully! You can now log in.");
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>

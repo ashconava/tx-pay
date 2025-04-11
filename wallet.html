@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Xmusk Pay - Wallet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .wallet-box {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #4CAF50;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 48%;
+      padding: 12px;
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .balance {
+      background: #e8f5e9;
+      padding: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+      border-radius: 6px;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wallet-box">
+    <h2>Xmusk Wallet</h2>
+
+    <div class="balance">
+      Wallet Balance: ₹<span id="walletBalance">1000</span>
+    </div>
+
+    <input type="text" id="usernameTo" placeholder="Username or Phone to send/receive">
+    <input type="number" id="amount" placeholder="Amount">
+
+    <div class="btn-group">
+      <button onclick="sendMoney()">Send</button>
+      <button onclick="receiveMoney()">Receive</
